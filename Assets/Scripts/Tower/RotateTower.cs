@@ -13,7 +13,7 @@ public class RotateTower : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Touch touch = Input.GetTouch(0);
 
@@ -21,8 +21,8 @@ public class RotateTower : MonoBehaviour
         {
             if(touch.phase == TouchPhase.Moved)
             {
-                float torque = Time.deltaTime * _rotateSpeed * touch.deltaPosition.x;
-                _rigidbody.AddTorque(Vector3.up * -torque);
+                float torque = Time.fixedDeltaTime * _rotateSpeed * touch.deltaPosition.x;
+                _rigidbody.AddTorque(Vector3.down * torque);
             }
         }
     }
