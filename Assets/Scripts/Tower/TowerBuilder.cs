@@ -13,7 +13,7 @@ public class TowerBuilder : MonoBehaviour
     private float _startAndFinishExtraSize = 0.5f;
     private float _beamSizeY => _levelCount / 2 + _startAndFinishExtraSize + _extraSize / 2f;
 
-    private void Start()
+    private void Awake()
     {
         Build();
     }

@@ -9,4 +9,15 @@ public class Ball : MonoBehaviour
             platformSegment.GetComponentInParent<Platform>().Break(); 
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.TryGetComponent(out FinishPlatform finishPlatform))
+        {
+            //Application.Quit();
+            Destroy(gameObject);
+            Destroy(collision.gameObject);
+            Time.timeScale = 0;
+        }
+    }
 }
