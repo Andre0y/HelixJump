@@ -14,9 +14,7 @@ public class Ball : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out FinishPlatform finishPlatform))
         {
-            //Application.Quit();
             Destroy(gameObject);
-            Destroy(collision.gameObject);
             Time.timeScale = 0;
         }
     }
