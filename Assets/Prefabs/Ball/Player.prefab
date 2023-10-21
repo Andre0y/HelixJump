@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d32f7123c501d8469b3479f006488e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _restartPanel: {fileID: 7664566895260358509, guid: 6b2f9bd0b324c2f4eb3eea24d619d89b, type: 3}
 --- !u!135 &2311635590034724097
 SphereCollider:
   m_ObjectHideFlags: 0

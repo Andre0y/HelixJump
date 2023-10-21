@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class Ball : MonoBehaviour
 {
@@ -6,16 +8,22 @@ public class Ball : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent(out PlatformSegment platformSegment))
         {
-            platformSegment.GetComponentInParent<Platform>().Break(); 
+            platformSegment.GetComponentInParent<Platform>().Break();
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.TryGetComponent(out Killer killer))
+        {
+            Destroy(gameObject);
+            SceneManager.LoadScene(0, LoadSceneMode.Single);
+        }
+
         if (collision.gameObject.TryGetComponent(out FinishPlatform finishPlatform))
         {
             Destroy(gameObject);
-            Time.timeScale = 0;
+            SceneManager.LoadScene(0, LoadSceneMode.Single);
         }
     }
 }
